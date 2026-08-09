@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shreehitha Arushan Cheekoti — Portfolio</title>
+  <meta name="description" content="Final-year B.Tech at IIT Kanpur. Full-stack, ML & AI engineering. Building tools that actually work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">SAC<span>.</span></a>
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">IIT Kanpur · Materials Science & Engineering · 2026</p>
+        <h1>
+          Shreehitha Arushan<br />
+          <span class="accent">Cheekoti</span>
+        </h1>
+        <p class="hero-lead">
+          Final-year undergrad building full-stack products, local agent systems, and ML tools that close the loop from model to reality.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Selected work</a>
+          <a href="https://github.com/csarushan1729" target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
+        </div>
+        <div class="hero-meta">
+          <span>Available for full-time / remote roles</span>
+          <span class="dot">·</span>
+          <span>Immediate start</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p class="section-desc">Two years of production LLM evaluation and prompt systems.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="role">Software Engineer</span>
+              <span class="org">Handshake AI</span>
+              <span class="period">2026 — Present · Freelance</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Engineered and hardened benchmark tasks that evaluate frontier LLMs across five critical dimensions, improving overall reliability of the evaluation suite.</li>
+              <li>Reviewed 100+ pull requests for de-identification pipelines — catching verifier exploits, contradictory specs, and incomplete test coverage before production.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span class="role">AI Prompt Engineer, Coder & LLM Trainer</span>
+              <span class="org">Outlier AI</span>
+              <span class="period">2023 — 2025 · Remote</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Designed 100+ high-complexity programming benchmarks by reverse-engineering real model failure modes; directly improved training data quality for SOTA models.</li>
+              <li>Validated 500+ submissions as Senior Reviewer across Go, Python, and Java — ensuring logical correctness, edge cases, and full unit-test coverage.</li>
+              <li>Built high-difficulty problems for the Spider Web project by analysing systematic model failures on complex datasets.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Selected Projects</h2>
+          <p class="section-desc">A focused set of end-to-end systems — agents, tools, and data products.</p>
+        </div>
+
+        <div class="project-grid">
+          <!-- RadeonAgents -->
+          <article class="project-card featured">
+            <div class="project-top">
+              <h3>RadeonAgents</h3>
+              <div class="tags">
+                <span>Python</span><span>PyTorch</span><span>ROCm</span><span>ChromaDB</span><span>Gradio</span>
+              </div>
+            </div>
+            <p>Local multi-agent framework built for AMD Radeon + ROCm. ReAct loop, hierarchical planner, specialised agents (researcher, coder), vector memory, and local RAG — all running offline with 40–90+ tok/s on consumer Radeon GPUs.</p>
+            <a href="https://github.com/csarushan1729/Radeon-Agents-AMD-Hackathon-p" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- Shortwave -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>Shortwave</h3>
+              <div class="tags">
+                <span>Next.js 14</span><span>TypeScript</span><span>Gemini / Claude</span><span>Gmail API</span>
+              </div>
+            </div>
+            <p>AI mail client where the assistant’s tool calls <em>are</em> the UI actions. Search, open, draft, and reply happen through a single state machine shared by human and model. Real-time sync via SSE + Gmail.</p>
+            <a href="https://github.com/csarushan1729/shortwave-mail-app" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- JobScout MCP -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>JobScout MCP</h3>
+              <div class="tags">
+                <span>Python</span><span>MCP SDK</span><span>SQLite</span><span>asyncio</span>
+              </div>
+            </div>
+            <p>MCP server that exposes four tools to Claude: live job search, skill-based ranking against a local profile, application tracking, and status listing. Concurrent API aggregation with per-source failure isolation.</p>
+            <a href="https://github.com/csarushan1729/jobscout-mcp" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- LeetHomie -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>LeetHomie</h3>
+              <div class="tags">
+                <span>JavaScript</span><span>Chrome Extension</span><span>Gemini API</span>
+              </div>
+            </div>
+            <p>Chrome extension that injects a context-aware chat interface into LeetCode problem pages. Hints, explanations, and inline code review powered by Gemini, with background orchestration and structured ranked output.</p>
+            <a href="https://github.com/csarushan1729/chrome-extension-project" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- Personal Finance Portal -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>Personal Finance Portal</h3>
+              <div class="tags">
+                <span>Django</span><span>PostgreSQL</span><span>Chart.js</span><span>Bootstrap</span>
+              </div>
+            </div>
+            <p>Full-stack budgeting app with transaction tracking, savings goals, and live visual analytics (pie + trend charts). REST-style backend, responsive frontend, end-to-end ownership.</p>
+            <a href="https://github.com/csarushan1729/Personal_finance_portal" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- ESG Scoring -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>ESG Scoring & Risk Platform</h3>
+              <div class="tags">
+                <span>Python</span><span>LightGBM</span><span>CatBoost</span>
+              </div>
+            </div>
+            <p>ML-driven ESG scoring model that predicts company sustainability scores from emissions, governance and compliance features. Interactive dashboard visualising E/S/G contributions for investment screening.</p>
+            <a href="https://github.com/csarushan1729/ESG-Sentiment-Index-for-Financial-Assets" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- StockFlow -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>StockFlow</h3>
+              <div class="tags">
+                <span>Flask / Django</span><span>REST APIs</span><span>Financial data</span>
+              </div>
+            </div>
+            <p>Real-time stock monitoring platform with live price feeds, portfolio tracking, historical trends, and watchlist management. Data pipeline for fetch–cache–display with an interactive dashboard.</p>
+            <a href="https://github.com/csarushan1729/Stock-Flow" target="_blank" rel="noopener" class="project-link">View repository →</a>
+          </article>
+
+          <!-- Alloy Design (no public repo listed, keep as description only or link if exists) -->
+          <article class="project-card">
+            <div class="project-top">
+              <h3>ML-Driven Alloy Design</h3>
+              <div class="tags">
+                <span>Scikit-learn</span><span>NSGA-II</span><span>Materials</span>
+              </div>
+            </div>
+            <p>Multi-objective optimisation (NSGA-II + regression) identifying 37 Pareto-optimal Cu-Al-Ni compositions for hardness, wear resistance and thermal conductivity. Validated with arc melting, SEM/EDS and XRD — model-to-experiment closed loop.</p>
+            <span class="project-link muted">Materials Science research project</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <p>Python, TypeScript, JavaScript, C++, C, Java, R, SQL</p>
+          </div>
+          <div class="skill-group">
+            <h4>Frameworks & Libraries</h4>
+            <p>Django, Flask, Next.js, Node.js, Express, Streamlit, Scikit-learn, XGBoost, LightGBM, CatBoost, PyTorch, NumPy, Pandas</p>
+          </div>
+          <div class="skill-group">
+            <h4>Databases & Tools</h4>
+            <p>PostgreSQL, MongoDB, MySQL, SQLite, Git, Docker, REST APIs, Chrome Extensions, Linux/Bash, Jupyter</p>
+          </div>
+          <div class="skill-group">
+            <h4>ML / AI Focus</h4>
+            <p>Regression & Classification, Feature Engineering, Multi-objective Optimisation (NSGA-II), Sentiment Analysis, Agentic systems, Gemini / Claude APIs, Local RAG</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About + Education + Achievements -->
+    <section id="about" class="section section-alt">
+      <div class="container about-grid">
+        <div class="about-main">
+          <h2>About</h2>
+          <p>
+            I’m a final-year B.Tech student in Materials Science & Engineering at IIT Kanpur with a parallel track in software and machine learning.
+            Most of my work sits at the intersection of practical systems and models that have to survive contact with real data — whether that’s local multi-agent frameworks on AMD hardware, financial analytics platforms, or closing the loop between ML predictions and physical alloy experiments.
+          </p>
+          <p>
+            I care about clear interfaces, reproducible pipelines, and tools that people can actually use without a research paper attached.
+          </p>
+        </div>
+
+        <div class="about-side">
+          <div class="side-block">
+            <h4>Education</h4>
+            <p class="edu-title">Indian Institute of Technology Kanpur</p>
+            <p class="edu-detail">B.Tech, Materials Science & Engineering<br />2022 — 2026</p>
+            <p class="edu-courses">Coursework: Machine Learning (Stanford), DSA with C++, Probability & Statistics, Computational Methods, Material Informatics, Linear Algebra</p>
+          </div>
+
+          <div class="side-block">
+            <h4>Selected Achievements</h4>
+            <ul class="achievements">
+              <li>Top 1.4% — JEE Advanced 2022 (1M+ applicants)</li>
+              <li>99.9 percentile Mathematics — JEE Mains 2022</li>
+              <li>Rank 32 — Chennai Mathematical Institute Entrance</li>
+              <li>Appreciation Award — Multi-Terrain Stimulated Rover (selected from 36 projects)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2>Get in touch</h2>
+        <p class="contact-lead">Open to software engineering, ML engineering, and AI-focused roles — remote or on-site.</p>
+        <div class="contact-links">
+          <a href="mailto:csarushan1729@gmail.com" class="contact-item">
+            <span class="label">Email</span>
+            <span class="value">csarushan1729@gmail.com</span>
+          </a>
+          <a href="https://github.com/csarushan1729" target="_blank" rel="noopener" class="contact-item">
+            <span class="label">GitHub</span>
+            <span class="value">github.com/csarushan1729</span>
+          </a>
+          <a href="https://www.linkedin.com/in/shreehitha-arushan-102777255" target="_blank" rel="noopener" class="contact-item">
+            <span class="label">LinkedIn</span>
+            <span class="value">shreehitha-arushan</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shreehitha Arushan Cheekoti · Built for the IITK student homepage</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
