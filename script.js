@@ -1,17 +1,12 @@
-/* ============================================================
-   Interactive 3D Skill Sphere
-   Skills distributed on a sphere, drag to rotate
-   ============================================================ */
+/* Contained skill orbit — nodes stay inside the stage box */
 
 const skills = [
-  // core
   { name: "Python", level: "core" },
   { name: "Django", level: "core" },
   { name: "PyTorch", level: "core" },
   { name: "TypeScript", level: "core" },
-  { name: "Agentic systems", level: "core" },
   { name: "Next.js", level: "core" },
-  // strong
+  { name: "Agentic systems", level: "core" },
   { name: "Flask", level: "strong" },
   { name: "PostgreSQL", level: "strong" },
   { name: "Scikit-learn", level: "strong" },
@@ -22,7 +17,6 @@ const skills = [
   { name: "Local RAG", level: "strong" },
   { name: "Node.js", level: "strong" },
   { name: "Git", level: "strong" },
-  // working
   { name: "LightGBM", level: "working" },
   { name: "MongoDB", level: "working" },
   { name: "ROCm", level: "working" },
@@ -32,136 +26,111 @@ const skills = [
   { name: "SQL", level: "working" },
   { name: "Chrome Ext", level: "working" },
   { name: "Linux", level: "working" },
-  { name: "R", level: "working" },
-  { name: "Java", level: "working" },
   { name: "Streamlit", level: "working" },
 ];
 
-const sphere = document.getElementById("sphere");
-const stage = document.getElementById("sphereStage");
+const stage = document.getElementById("orbitStage");
+const orbit = document.getElementById("orbit");
 
-if (sphere && stage) {
-  const radius = 130;
+if (stage && orbit) {
   const nodes = [];
-
-  // Fibonacci sphere distribution for even spacing
   const N = skills.length;
   const golden = Math.PI * (3 - Math.sqrt(5));
 
-  skills.forEach((skill, i) => {
-    const y = 1 - (i / (N - 1)) * 2;
-    const r = Math.sqrt(1 - y * y);
+  // Place on a unit sphere via Fibonacci
+  skills.forEach((s, i) => {
+    const y = 1 - (i / Math.max(N - 1, 1)) * 2;
+    const r = Math.sqrt(Math.max(0, 1 - y * y));
     const theta = golden * i;
-    const x = Math.cos(theta) * r;
-    const z = Math.sin(theta) * r;
 
     const el = document.createElement("div");
-    el.className = `skill-node ${skill.level}`;
-    el.textContent = skill.name;
-    sphere.appendChild(el);
+    el.className = `orb-node ${s.level}`;
+    el.textContent = s.name;
+    orbit.appendChild(el);
 
-    nodes.push({ el, x, y, z });
+    nodes.push({
+      el,
+      x: Math.cos(theta) * r,
+      y,
+      z: Math.sin(theta) * r,
+    });
   });
 
-  let rotX = -15;
-  let rotY = 25;
-  let targetRotX = rotX;
-  let targetRotY = rotY;
+  // Radius relative to stage size
+  function getRadius() {
+    return Math.min(stage.clientWidth, stage.clientHeight) * 0.36;
+  }
+
+  let rotX = -18;
+  let rotY = 20;
+  let tRotX = rotX;
+  let tRotY = rotY;
   let dragging = false;
-  let lastX = 0;
-  let lastY = 0;
-  let autoRotate = true;
+  let lx = 0, ly = 0;
+  let auto = true;
 
-  function project() {
-    const radX = (rotX * Math.PI) / 180;
-    const radY = (rotY * Math.PI) / 180;
-    const cosX = Math.cos(radX);
-    const sinX = Math.sin(radX);
-    const cosY = Math.cos(radY);
-    const sinY = Math.sin(radY);
+  function render() {
+    const R = getRadius();
+    const rx = (rotX * Math.PI) / 180;
+    const ry = (rotY * Math.PI) / 180;
+    const cosX = Math.cos(rx), sinX = Math.sin(rx);
+    const cosY = Math.cos(ry), sinY = Math.sin(ry);
 
-    // sort by depth for correct stacking
-    const projected = nodes.map((n) => {
-      // rotate around Y then X
-      let x = n.x;
-      let y = n.y;
-      let z = n.z;
-
-      // Y rotation
-      let x1 = x * cosY - z * sinY;
-      let z1 = x * sinY + z * cosY;
-      // X rotation
-      let y1 = y * cosX - z1 * sinX;
-      let z2 = y * sinX + z1 * cosX;
-
+    const list = nodes.map((n) => {
+      // rotate Y then X
+      let x1 = n.x * cosY - n.z * sinY;
+      let z1 = n.x * sinY + n.z * cosY;
+      let y1 = n.y * cosX - z1 * sinX;
+      let z2 = n.y * sinX + z1 * cosX;
       return { el: n.el, x: x1, y: y1, z: z2 };
     });
 
-    projected.sort((a, b) => a.z - b.z);
+    list.sort((a, b) => a.z - b.z);
 
-    projected.forEach((p) => {
-      const scale = 0.55 + (p.z + 1) * 0.35;
-      const opacity = 0.35 + (p.z + 1) * 0.4;
-      p.el.style.transform = `translate(-50%, -50%) translate3d(${p.x * radius}px, ${p.y * radius}px, ${p.z * radius}px) scale(${scale})`;
-      p.el.style.opacity = opacity;
-      p.el.style.zIndex = Math.floor((p.z + 1) * 50);
+    list.forEach((p) => {
+      const depth = (p.z + 1) / 2; // 0..1
+      const scale = 0.65 + depth * 0.45;
+      const opacity = 0.4 + depth * 0.6;
+      p.el.style.transform = `translate(calc(-50% + ${p.x * R}px), calc(-50% + ${p.y * R}px)) scale(${scale})`;
+      p.el.style.opacity = String(opacity);
+      p.el.style.zIndex = String(Math.round(depth * 100));
     });
   }
 
-  function animate() {
-    if (autoRotate && !dragging) {
-      targetRotY += 0.15;
-    }
-    // smooth lerp
-    rotX += (targetRotX - rotX) * 0.12;
-    rotY += (targetRotY - rotY) * 0.12;
-    project();
-    requestAnimationFrame(animate);
+  function tick() {
+    if (auto && !dragging) tRotY += 0.18;
+    rotX += (tRotX - rotX) * 0.1;
+    rotY += (tRotY - rotY) * 0.1;
+    render();
+    requestAnimationFrame(tick);
   }
 
-  // Pointer events for drag
   stage.addEventListener("pointerdown", (e) => {
     dragging = true;
-    autoRotate = false;
-    lastX = e.clientX;
-    lastY = e.clientY;
+    auto = false;
+    lx = e.clientX;
+    ly = e.clientY;
     stage.setPointerCapture(e.pointerId);
   });
 
   stage.addEventListener("pointermove", (e) => {
     if (!dragging) return;
-    const dx = e.clientX - lastX;
-    const dy = e.clientY - lastY;
-    targetRotY += dx * 0.4;
-    targetRotX -= dy * 0.4;
-    // clamp X so it doesn't flip awkwardly
-    targetRotX = Math.max(-80, Math.min(80, targetRotX));
-    lastX = e.clientX;
-    lastY = e.clientY;
+    tRotY += (e.clientX - lx) * 0.45;
+    tRotX -= (e.clientY - ly) * 0.45;
+    tRotX = Math.max(-75, Math.min(75, tRotX));
+    lx = e.clientX;
+    ly = e.clientY;
   });
 
-  stage.addEventListener("pointerup", () => {
+  const endDrag = () => {
     dragging = false;
-    // resume auto-rotate after a pause
-    setTimeout(() => { autoRotate = true; }, 2500);
-  });
+    setTimeout(() => { auto = true; }, 2000);
+  };
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
 
-  stage.addEventListener("pointercancel", () => {
-    dragging = false;
-  });
+  window.addEventListener("resize", render);
 
-  // start
-  project();
-  animate();
-}
-
-/* Horizontal scroll hint — optional wheel-to-horizontal on project strip */
-const strip = document.getElementById("projectScroll");
-if (strip) {
-  strip.addEventListener("wheel", (e) => {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      e.preventDefault();
-      strip.scrollLeft += e.deltaY;
-    }
-  }, { passive: false });
+  render();
+  tick();
 }
