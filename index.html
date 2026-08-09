@@ -7,233 +7,168 @@
   <meta name="description" content="IIT Kanpur · Agents, systems & tools that ship." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="grain"></div>
+  <nav class="nav">
+    <a href="#top" class="logo">SAC</a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#sphere">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:csarushan1729@gmail.com" class="nav-mail">Email</a>
+  </nav>
 
-  <!-- Top identity strip -->
-  <div class="topstrip">
-    <span class="ts-name">Shreehitha Arushan Cheekoti</span>
-    <span class="ts-meta">IIT Kanpur · Materials Science · 2026</span>
-    <span class="ts-live"><i></i> Open to roles</span>
-  </div>
-
-  <!-- HERO — full viewport statement -->
-  <section class="hero" id="top">
-    <div class="hero-bg-text" aria-hidden="true">BUILD</div>
-    <div class="hero-content">
-      <p class="hero-kicker">Software · Agents · Machine Learning</p>
-      <h1>
-        I build systems<br />
-        that <span class="serif">reason</span><br />
-        and tools that<br />
-        <span class="underline">actually ship</span>.
-      </h1>
-      <div class="hero-cta-row">
-        <a href="#work" class="cta">See the work</a>
-        <a href="mailto:csarushan1729@gmail.com" class="cta ghost">Email me</a>
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow">IIT Kanpur · Materials Science · 2026</p>
+      <h1>Systems that <em>reason</em>.<br />Tools that <em>ship</em>.</h1>
+      <p class="hero-lead">
+        Final-year undergrad building local agents, AI products, and data systems —
+        with two years of production LLM evaluation behind them.
+      </p>
+      <div class="hero-row">
+        <a href="#projects" class="btn">Selected work</a>
+        <div class="hero-pills">
+          <span>Available now</span>
+          <span>Remote / On-site</span>
+        </div>
       </div>
     </div>
-    <div class="hero-coords">
-      <span>01 / EXPERIENCE</span>
-      <span>02 / PROJECTS</span>
-      <span>03 / STACK</span>
-      <span>04 / CONTACT</span>
-    </div>
-  </section>
+  </header>
 
-  <!-- EXPERIENCE — timeline as a continuous vertical line -->
-  <section class="block" id="work">
-    <div class="block-label">
-      <span class="num">01</span>
-      <span class="title">Experience</span>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-line"></div>
-
-      <article class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2026 — Now</div>
-        <div class="tl-content">
-          <h3>Software Engineer <em>Handshake AI</em></h3>
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">01</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="exp-grid">
+        <article class="exp-card">
+          <div class="exp-when">2026 — Present</div>
+          <h3>Software Engineer <span>Handshake AI</span></h3>
           <p>Hardened LLM evaluation benchmarks across five dimensions. Reviewed 100+ de-identification pipeline PRs — catching verifier exploits, contradictory specs, and incomplete coverage before production.</p>
-        </div>
-      </article>
-
-      <article class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2023 — 2025</div>
-        <div class="tl-content">
-          <h3>AI Prompt Engineer & LLM Trainer <em>Outlier AI</em></h3>
-          <p>Designed 100+ high-complexity programming benchmarks by reverse-engineering real model failure modes. Senior reviewer on 500+ submissions across Go, Python, Java. Built Spider Web problems that systematically stress frontier models.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROJECTS — large horizontal cards with index numbers -->
-  <section class="block projects-block" id="projects">
-    <div class="block-label">
-      <span class="num">02</span>
-      <span class="title">Selected work</span>
-      <span class="sub">The ones that matter.</span>
-    </div>
-
-    <div class="project-rail">
-      <a href="https://github.com/csarushan1729/Radeon-Agents-AMD-Hackathon-p" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">01</div>
-        <div class="proj-body">
-          <div class="proj-tags">Python · PyTorch · ROCm · Chroma · Gradio</div>
-          <h3>RadeonAgents</h3>
-          <p>Local multi-agent framework for AMD Radeon + ROCm. ReAct loop, hierarchical planner, specialised agents, vector memory & local RAG. 40–90+ tok/s on consumer GPUs.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/csarushan1729/shortwave-mail-app" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">02</div>
-        <div class="proj-body">
-          <div class="proj-tags">Next.js · TypeScript · Claude / Gemini</div>
-          <h3>Shortwave</h3>
-          <p>AI mail client where the assistant’s tool calls <em>are</em> the UI actions. One shared state machine for human and model.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/csarushan1729/jobscout-mcp" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">03</div>
-        <div class="proj-body">
-          <div class="proj-tags">Python · MCP · SQLite · asyncio</div>
-          <h3>JobScout MCP</h3>
-          <p>MCP server that lets Claude search live jobs, rank them against your skills profile, and track applications — fully local.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/csarushan1729/chrome-extension-project" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">04</div>
-        <div class="proj-body">
-          <div class="proj-tags">JavaScript · Chrome APIs · Gemini</div>
-          <h3>LeetHomie</h3>
-          <p>Chrome extension injecting context-aware hints, explanations and code review directly into LeetCode problem pages.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/csarushan1729/Personal_finance_portal" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">05</div>
-        <div class="proj-body">
-          <div class="proj-tags">Django · PostgreSQL · Chart.js</div>
-          <h3>Personal Finance Portal</h3>
-          <p>Full-stack budgeting with transaction tracking, savings goals and live visual analytics. End-to-end ownership.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/csarushan1729/ESG-Sentiment-Index-for-Financial-Assets" target="_blank" rel="noopener" class="proj">
-        <div class="proj-index">06</div>
-        <div class="proj-body">
-          <div class="proj-tags">LightGBM · CatBoost · Python</div>
-          <h3>ESG Scoring Platform</h3>
-          <p>ML-driven sustainability scoring + interactive risk dashboard for investment screening workflows.</p>
-        </div>
-        <div class="proj-arrow">→</div>
-      </a>
-
-      <div class="proj proj-static">
-        <div class="proj-index">07</div>
-        <div class="proj-body">
-          <div class="proj-tags">NSGA-II · Scikit-learn · SEM / XRD</div>
-          <h3>ML Alloy Design</h3>
-          <p>Multi-objective optimisation identifying 37 Pareto-optimal Cu-Al-Ni compositions. Validated with physical fabrication and lab characterisation — model-to-experiment closed loop.</p>
-        </div>
+        </article>
+        <article class="exp-card">
+          <div class="exp-when">2023 — 2025</div>
+          <h3>AI Prompt Engineer & LLM Trainer <span>Outlier AI</span></h3>
+          <p>Designed 100+ high-complexity programming benchmarks from real model failure modes. Senior reviewer on 500+ submissions (Go, Python, Java). Built Spider Web problems that systematically stress frontier models.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- STACK — large visual skill matrix -->
-  <section class="block stack-block" id="stack">
-    <div class="block-label">
-      <span class="num">03</span>
-      <span class="title">Stack</span>
-      <span class="sub">What I actually reach for.</span>
+  <!-- PROJECTS — horizontal scroll strip -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">02</span>
+        <h2>Selected builds</h2>
+        <p class="hint">Scroll sideways →</p>
+      </div>
     </div>
+    <div class="h-scroll" id="projectScroll">
+      <a href="https://github.com/csarushan1729/Radeon-Agents-AMD-Hackathon-p" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">01</span>
+        <h3>RadeonAgents</h3>
+        <p>Local multi-agent framework on AMD Radeon + ROCm. ReAct, hierarchical planner, specialised agents, vector memory. 40–90+ tok/s.</p>
+        <div class="p-tags">Python · PyTorch · ROCm · Chroma</div>
+      </a>
+      <a href="https://github.com/csarushan1729/shortwave-mail-app" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">02</span>
+        <h3>Shortwave</h3>
+        <p>AI mail client where the assistant’s tool calls <em>are</em> the UI. One state machine for human and model.</p>
+        <div class="p-tags">Next.js · TypeScript · Claude</div>
+      </a>
+      <a href="https://github.com/csarushan1729/jobscout-mcp" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">03</span>
+        <h3>JobScout MCP</h3>
+        <p>MCP server for Claude: live job search, skill-based ranking, local application tracking.</p>
+        <div class="p-tags">Python · MCP · SQLite</div>
+      </a>
+      <a href="https://github.com/csarushan1729/chrome-extension-project" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">04</span>
+        <h3>LeetHomie</h3>
+        <p>Chrome extension injecting context-aware hints and code review into LeetCode pages.</p>
+        <div class="p-tags">JS · Chrome APIs · Gemini</div>
+      </a>
+      <a href="https://github.com/csarushan1729/Personal_finance_portal" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">05</span>
+        <h3>Finance Portal</h3>
+        <p>Full-stack budgeting with goals, transactions and live Chart.js analytics.</p>
+        <div class="p-tags">Django · PostgreSQL</div>
+      </a>
+      <a href="https://github.com/csarushan1729/ESG-Sentiment-Index-for-Financial-Assets" target="_blank" rel="noopener" class="p-card">
+        <span class="p-num">06</span>
+        <h3>ESG Platform</h3>
+        <p>ML sustainability scoring + interactive risk dashboard for investment screening.</p>
+        <div class="p-tags">LightGBM · CatBoost</div>
+      </a>
+      <div class="p-card p-static">
+        <span class="p-num">07</span>
+        <h3>ML Alloy Design</h3>
+        <p>NSGA-II + regression → 37 Pareto-optimal Cu-Al-Ni alloys. Validated with SEM/XRD.</p>
+        <div class="p-tags">NSGA-II · Materials</div>
+      </div>
+    </div>
+  </section>
 
-    <div class="skill-matrix">
-      <div class="skill-col">
-        <h4>Languages</h4>
-        <div class="skill-list">
-          <span class="s high">Python</span>
-          <span class="s high">TypeScript</span>
-          <span class="s mid">JavaScript</span>
-          <span class="s mid">C++</span>
-          <span class="s">SQL</span>
-          <span class="s">Java</span>
-          <span class="s">R</span>
-          <span class="s">C</span>
-        </div>
+  <!-- SKILL SPHERE — the creative centerpiece -->
+  <section class="section sphere-section" id="sphere">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">03</span>
+        <h2>Stack</h2>
+        <p class="hint">Drag the sphere · scroll to zoom feel</p>
       </div>
-      <div class="skill-col">
-        <h4>Systems</h4>
-        <div class="skill-list">
-          <span class="s high">Django</span>
-          <span class="s high">Next.js</span>
-          <span class="s mid">Flask</span>
-          <span class="s mid">Node / Express</span>
-          <span class="s mid">PostgreSQL</span>
-          <span class="s">MongoDB</span>
-          <span class="s">REST APIs</span>
-          <span class="s">Streamlit</span>
+
+      <div class="sphere-wrap">
+        <div class="sphere-stage" id="sphereStage">
+          <div class="sphere" id="sphere">
+            <!-- skills injected by JS -->
+          </div>
         </div>
-      </div>
-      <div class="skill-col">
-        <h4>Intelligence</h4>
-        <div class="skill-list">
-          <span class="s high">PyTorch</span>
-          <span class="s high">Agentic systems</span>
-          <span class="s high">Gemini / Claude</span>
-          <span class="s mid">Scikit-learn</span>
-          <span class="s mid">XGBoost / LightGBM</span>
-          <span class="s mid">Local RAG</span>
-          <span class="s">NSGA-II</span>
-          <span class="s">ROCm</span>
-        </div>
-      </div>
-      <div class="skill-col">
-        <h4>Craft</h4>
-        <div class="skill-list">
-          <span class="s high">Git</span>
-          <span class="s mid">Docker</span>
-          <span class="s mid">Chrome Ext</span>
-          <span class="s mid">Linux / Bash</span>
-          <span class="s">MCP</span>
-          <span class="s">Jupyter</span>
+        <div class="sphere-legend">
+          <p>Drag to rotate. Skills are sized by how often I reach for them.</p>
+          <div class="legend-row">
+            <span class="lg high"></span> Core
+            <span class="lg mid"></span> Strong
+            <span class="lg low"></span> Working
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT + EDUCATION in a split band -->
-  <section class="block about-block" id="about">
-    <div class="about-split">
-      <div class="about-text">
-        <h2>Approach</h2>
-        <p>I work where models meet systems that have to survive real use — local agents on AMD hardware, financial platforms, and closing the loop between ML predictions and physical alloy experiments.</p>
-        <p>Clear interfaces over clever abstractions. Ship over theory.</p>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="section-head">
+          <span class="tag">04</span>
+          <h2>Approach</h2>
+        </div>
+        <p class="about-text">
+          I work where models meet systems that have to survive real use —
+          local agents on AMD hardware, financial platforms, and closing the loop
+          between ML predictions and physical experiments. Clear interfaces over clever abstractions.
+        </p>
       </div>
-      <div class="about-meta">
-        <div class="meta-group">
+      <div class="about-side">
+        <div class="side-block">
           <h4>Education</h4>
           <p><strong>IIT Kanpur</strong><br />B.Tech, Materials Science & Engineering<br />2022 — 2026</p>
         </div>
-        <div class="meta-group">
+        <div class="side-block">
           <h4>Signals</h4>
           <ul>
             <li>Top 1.4% — JEE Advanced 2022</li>
-            <li>99.9 %ile Maths — JEE Mains</li>
+            <li>99.9 %ile Mathematics — JEE Mains</li>
             <li>Rank 32 — CMI Entrance</li>
             <li>Appreciation Award — Rover project</li>
           </ul>
@@ -242,26 +177,26 @@
     </div>
   </section>
 
-  <!-- CONTACT — big and direct -->
-  <section class="block contact-block" id="contact">
-    <div class="block-label">
-      <span class="num">04</span>
-      <span class="title">Contact</span>
-    </div>
-    <h2 class="contact-headline">
-      Let’s build<br />something solid.
-    </h2>
-    <p class="contact-sub">Open to software, ML and AI engineering roles. Remote or on-site. Immediate start.</p>
-    <div class="contact-links">
-      <a href="mailto:csarushan1729@gmail.com">csarushan1729@gmail.com</a>
-      <a href="https://github.com/csarushan1729" target="_blank" rel="noopener">github.com/csarushan1729</a>
-      <a href="https://www.linkedin.com/in/shreehitha-arushan-102777255" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">05</span>
+        <h2>Reach out</h2>
+      </div>
+      <p class="contact-lead">Open to software, ML and AI engineering roles. Remote or on-site. Immediate availability.</p>
+      <div class="contact-row">
+        <a href="mailto:csarushan1729@gmail.com">csarushan1729@gmail.com</a>
+        <a href="https://github.com/csarushan1729" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/shreehitha-arushan-102777255" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 Shreehitha Arushan Cheekoti</span>
-    <span class="footer-right">Built with intent</span>
+    <div class="container">
+      <span>© 2026 Shreehitha Arushan Cheekoti</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
