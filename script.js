@@ -1,42 +1,41 @@
-// Minimal interactions — mobile nav + smooth section highlighting
+// Skill filter + active rail section highlighting
 
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav");
+const filters = document.querySelectorAll(".filter");
+const chips = document.querySelectorAll(".skill-chip");
 
-if (menuToggle && nav) {
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
+filters.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filters.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
-  // Close menu when a link is clicked
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
+    const cat = btn.dataset.filter;
+
+    chips.forEach((chip) => {
+      if (cat === "all" || chip.dataset.cat === cat) {
+        chip.classList.remove("dimmed", "hidden");
+      } else {
+        chip.classList.add("dimmed");
+      }
     });
   });
-}
+});
 
-// Optional: subtle active state on scroll (lightweight)
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav a[href^='#']");
+// Highlight current section in the side rail
+const sections = document.querySelectorAll("section[id], header#top");
+const railLinks = document.querySelectorAll(".rail-nav a");
 
-function updateActiveNav() {
-  const scrollY = window.scrollY + 100;
+function updateRail() {
+  const y = window.scrollY + 120;
 
-  sections.forEach((section) => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute("id");
+  let current = "top";
+  document.querySelectorAll("section[id]").forEach((sec) => {
+    if (y >= sec.offsetTop) current = sec.id;
+  });
 
-    if (scrollY >= top && scrollY < top + height) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${id}`) {
-          link.classList.add("active");
-        }
-      });
-    }
+  railLinks.forEach((link) => {
+    link.classList.toggle("active", link.dataset.section === current);
   });
 }
 
-window.addEventListener("scroll", updateActiveNav, { passive: true });
+window.addEventListener("scroll", updateRail, { passive: true });
+updateRail();
